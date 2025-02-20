@@ -4,7 +4,7 @@ import axios from "axios";
 import io from "socket.io-client";
 import CodeEditor from "../components/CodeEditor";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://colab-433t.onrender.com");
 
 const EditorPage = () => {
   const { roomId } = useParams();
@@ -16,7 +16,7 @@ const EditorPage = () => {
   useEffect(() => {
     const fetchPreviousCode = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/code/${roomId}`, { withCredentials: true });
+        const res = await axios.get(`https://colab-433t.onrender.com/api/code/${roomId}`, { withCredentials: true });
         if (res.data) {
           setCode(res.data.code);
           setLanguage(res.data.language || "javascript");
@@ -56,7 +56,7 @@ const EditorPage = () => {
   const handleSaveCode = () => {
     axios
       .post(
-        "http://localhost:5000/api/code/save",
+        "https://colab-433t.onrender.com/api/code/save",
         { roomId, code, language },
         { withCredentials: true }
       )
