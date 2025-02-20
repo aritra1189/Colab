@@ -13,7 +13,7 @@ const app=express()
 const server = createServer(app);
 const io = new Server(server, { cors: { origin: "*" } });
 app.use(cors({
-    origin: "http://localhost:5174", 
+    origin: "https://colab-af6b-f75ojxr99-aritra-sharmas-projects.vercel.app", 
     credentials: true
   }));
 app.use(express.json());
