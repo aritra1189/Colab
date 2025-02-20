@@ -35,7 +35,7 @@ export const register = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true, // Prevent access from JavaScript
       secure: process.env.NODE_ENV === "production" ? true : false, // Secure only in production
-      sameSite: "Strict", // Prevent CSRF
+      sameSite: "None", // Prevent CSRF
       maxAge: 3600000, // 1 hour expiration
     });
 
@@ -76,7 +76,7 @@ export const login = async (req, res) => {
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: "Strict",
+      sameSite: "None",
     });
 
     res.json({ message: "Login successful", user: { _id: user._id, name: user.name, email: user.email } });
